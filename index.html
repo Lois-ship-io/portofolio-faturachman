@@ -1,0 +1,839 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <!-- ============================== -->
+    <!-- META & SEO                     -->
+    <!-- ============================== -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portofolio profesional - Menampilkan karya, pengalaman, dan keahlian saya dalam dunia teknologi dan pengembangan web."
+    />
+    <meta
+      name="keywords"
+      content="portofolio, web developer, programmer, desain, project"
+    />
+    <meta name="author" content="Faturachman" />
+    <title>Portofolio | Faturachman</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+
+    <!-- ============================== -->
+    <!-- FONTS & ICONS                  -->
+    <!-- ============================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- ============================== -->
+    <!-- STYLESHEET                     -->
+    <!-- ============================== -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- ============================== -->
+    <!-- EFEK VISUAL: Cursor Glow       -->
+    <!-- Efek cahaya mengikuti kursor   -->
+    <!-- ============================== -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- ============================== -->
+    <!-- EFEK VISUAL: Particle Canvas   -->
+    <!-- Background animasi partikel    -->
+    <!-- ============================== -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- ============================================================ -->
+    <!--                       NAVIGASI (NAVBAR)                      -->
+    <!-- Menu navigasi utama, fixed di atas saat scroll               -->
+    <!-- Berisi: Logo, Menu Links, Hamburger Button (mobile)          -->
+    <!-- ============================================================ -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <!-- Logo / Nama Brand -->
+        <a href="#beranda" class="nav-logo">FATURACHMAN</a>
+
+        <!-- Menu Navigasi -->
+        <ul class="nav-menu" id="navMenu">
+          <li>
+            <a href="#beranda" class="nav-link active" data-section="beranda"
+              >Beranda</a
+            >
+          </li>
+          <li>
+            <a href="#tentang" class="nav-link" data-section="tentang"
+              >Tentang</a
+            >
+          </li>
+          <li>
+            <a href="#portofolio" class="nav-link" data-section="portofolio"
+              >Portofolio</a
+            >
+          </li>
+          <li>
+            <a href="#pendidikan" class="nav-link" data-section="pendidikan"
+              >Pendidikan</a
+            >
+          </li>
+          <li><a href="#blog" class="nav-link" data-section="blog">Blog</a></li>
+          <li>
+            <a href="#kontak" class="nav-link" data-section="kontak">Kontak</a>
+          </li>
+        </ul>
+
+        <!-- Tombol Hamburger (tampil di mobile) -->
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Toggle navigation"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ============================================================ -->
+    <!--              SECTION 1: BERANDA (HERO)                       -->
+    <!-- Halaman utama dengan sapaan, typewriter, CTA, dan statistik  -->
+    <!-- ============================================================ -->
+    <section id="beranda" class="hero-section">
+      <div class="hero-container">
+        <!-- Konten Teks Hero (Kiri) -->
+        <div class="hero-content">
+          <!-- Judul & Nama -->
+          <h1 class="hero-title reveal-up">
+            Halo, Saya
+            <span class="hero-name gradient-text"
+              >Muhammad Arief Tri Faturachman</span
+            >
+          </h1>
+
+          <!-- Efek Typewriter: teks berganti otomatis -->
+          <div class="hero-typewriter reveal-up">
+            <span class="typewriter-prefix">Saya seorang </span>
+            <span class="typewriter-text" id="typewriter"></span>
+            <span class="typewriter-cursor">|</span>
+          </div>
+
+          <!-- Deskripsi Singkat -->
+          <p class="hero-description reveal-up">
+            Berbekal fondasi IT yang kuat dan semangat eksplorasi tinggi, saya
+            siap memulai karier profesional untuk membangun solusi perangkat
+            lunak yang efisien dan bermanfaat.
+          </p>
+
+          <!-- Tombol CTA (Call to Action) -->
+          <div class="hero-cta reveal-up">
+            <a href="#portofolio" class="btn btn-primary">
+              <span>Lihat Karya Saya</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="#kontak" class="btn btn-outline">
+              <span>Hubungi Saya</span>
+              <i class="fas fa-paper-plane"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Visual Hero (Kanan): Avatar & Floating Badges -->
+        <div class="hero-visual reveal-right">
+          <div class="hero-image-wrapper">
+            <!-- Cincin Animasi -->
+            <div class="hero-image-ring"></div>
+            <div class="hero-image-ring ring-2"></div>
+
+            <!-- Avatar Utama -->
+            <div class="hero-avatar">
+              <img
+                src="images/foto-profil.jpg"
+                alt="Foto Faturachman"
+                class="avatar-img"
+              />
+            </div>
+
+            <!-- Badge Teknologi Melayang -->
+            <div class="floating-badge badge-1">
+              <i class="fab fa-html5"></i>
+            </div>
+            <div class="floating-badge badge-2">
+              <i class="fab fa-css3-alt"></i>
+            </div>
+            <div class="floating-badge badge-3">
+              <i class="fab fa-js-square"></i>
+            </div>
+            <div class="floating-badge badge-4">
+              <i class="fab fa-react"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Indikator Scroll ke Bawah -->
+      <div class="scroll-indicator">
+        <div class="mouse">
+          <div class="mouse-wheel"></div>
+        </div>
+        <span>Scroll ke bawah</span>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!--              SECTION 2: TENTANG SAYA                         -->
+    <!-- Informasi personal, bio, info grid, tech stack, download CV  -->
+    <!-- ============================================================ -->
+    <section id="tentang" class="section">
+      <div class="container">
+        <!-- Header Section -->
+        <div class="section-header reveal-up">
+          <span class="section-tag">Kenali Saya</span>
+          <h2 class="section-title">
+            Tentang <span class="gradient-text">Saya</span>
+          </h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="about-grid">
+          <!-- Kolom Kiri: Gambar/Ilustrasi -->
+          <div class="about-image-col reveal-left">
+            <div class="about-image-card">
+              <img
+                src="images/foto-profil.jpg"
+                alt="Foto Faturachman"
+                class="about-profile-img"
+              />
+            </div>
+          </div>
+
+          <!-- Kolom Kanan: Konten Tentang -->
+          <div class="about-content-col">
+            <!-- Paragraf Bio -->
+            <p class="about-text reveal-up">
+              Saya merupakan lulusan S1 Teknik Informatika Universitas Pamulang
+              dengan IPK 3,68, yang memiliki ketertarikan dan kompetensi di
+              bidang Frontend Development, Network Administration, dan Analisis
+              Sistem. Saya juga memiliki sertifikasi Network Administrator BNSP
+              Garuda sebagai bentuk pengembangan kompetensi di bidang jaringan.
+            </p>
+            <p class="about-text reveal-up">
+              Selama menempuh pendidikan, saya terbiasa mengerjakan berbagai
+              proyek yang berkaitan dengan pemecahan masalah teknis, perancangan
+              sistem, serta pengembangan solusi berbasis teknologi. Saya
+              memiliki kemampuan berpikir analitis, mampu beradaptasi dengan
+              teknologi baru, dan memiliki semangat untuk terus belajar serta
+              mengembangkan kemampuan.
+            </p>
+
+            <p class="about-text reveal-up">
+              Melalui portofolio ini, saya ingin memperkenalkan berbagai proyek,
+              pengalaman, dan hasil karya yang telah saya kerjakan sekaligus
+              menunjukkan bagaimana saya menerapkan pengetahuan dan keterampilan
+              di bidang teknologi informasi.
+            </p>
+
+            <!-- Grid Informasi Personal -->
+            <div class="about-info-grid reveal-up">
+              <div class="info-item">
+                <i class="fas fa-user"></i>
+                <div>
+                  <span class="info-label">Nama</span>
+                  <span class="info-value">Muhammad Arief Tri Faturachman</span>
+                </div>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <span class="info-label">Lokasi</span>
+                  <span class="info-value">Tangerang, Banten, Indonesia</span>
+                </div>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                  <span class="info-label">Email</span>
+                  <span class="info-value"
+                    >muhammadarieftrifaturachman@gmail.com</span
+                  >
+                </div>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-briefcase"></i>
+                <div>
+                  <span class="info-label">Status</span>
+                  <span class="info-value available">Tersedia untuk hire</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tech Stack / Keahlian -->
+            <div class="skills-section reveal-up">
+              <h4 class="skills-title">Keahlian</h4>
+              <div class="skills-grid">
+                <div class="skill-tag">
+                  <i class="fas fa-brain"></i> Adaptive
+                </div>
+                <div class="skill-tag">
+                  <i class="fas fa-users"></i> Collaborative
+                </div>
+                <div class="skill-tag">
+                  <i class="fas fa-flag"></i> Leadership
+                </div>
+                <div class="skill-tag">
+                  <i class="fas fa-hands-helping"></i> Teamwork
+                </div>
+                <div class="skill-tag">
+                  <i class="fas fa-tasks"></i> Team Management
+                </div>
+                <div class="skill-tag">
+                  <i class="fas fa-network-wired"></i> Network Administrator
+                </div>
+                <div class="skill-tag">
+                  <i class="fas fa-comments"></i> Communication Skills
+                </div>
+                <div class="skill-tag">
+                  <i class="fab fa-microsoft"></i> Microsoft Office
+                </div>
+                <div class="skill-tag">
+                  <i class="fas fa-laptop-code"></i> Frontend Developer
+                </div>
+                <div class="skill-tag">
+                  <i class="fas fa-code"></i> Web Developer
+                </div>
+                <div class="skill-tag">
+                  <i class="fas fa-headset"></i> IT Support
+                </div>
+              </div>
+            </div>
+
+            <!-- Tombol Download CV (file PDF dari folder CV/) -->
+            <a
+              href="CV/CV_MUHAMMAD ARIEF TRI FATURACHMAN.pdf"
+              download
+              class="btn btn-primary reveal-up"
+            >
+              <span>Download CV</span>
+              <i class="fas fa-download"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!--              SECTION 3: PORTOFOLIO                           -->
+    <!-- Menampilkan project-project yang pernah dikerjakan           -->
+    <!-- Dilengkapi filter kategori: Semua, Web App, Mobile, Desain  -->
+    <!-- ============================================================ -->
+    <section id="portofolio" class="section section-alt">
+      <div class="container">
+        <!-- Header Section -->
+        <div class="section-header reveal-up">
+          <span class="section-tag">Karya Saya</span>
+          <h2 class="section-title">
+            Project <span class="gradient-text">Portofolio</span>
+          </h2>
+          <div class="section-line"></div>
+          <p class="section-desc">
+            Berikut beberapa project yang telah saya kerjakan dengan penuh
+            dedikasi dan kreativitas.
+          </p>
+        </div>
+
+        <!-- Tombol Filter Kategori -->
+        <div class="portfolio-filters reveal-up">
+          <button class="filter-btn active" data-filter="all">Semua</button>
+          <button class="filter-btn" data-filter="web">Web App</button>
+          <button class="filter-btn" data-filter="design">Desain</button>
+        </div>
+
+        <!-- Grid Kartu Project -->
+        <div class="portfolio-grid">
+          <!-- ===== Project 1: Topologi Jaringan ===== -->
+          <div class="portfolio-card reveal-up" data-category="design">
+            <div class="card-image">
+              <img
+                src="images/portfolio-cisco.png"
+                alt="Topologi Jaringan Cisco"
+                style="width: 100%; height: 100%; object-fit: cover"
+              />
+            </div>
+            <div class="card-body">
+              <div class="card-tags">
+                <span class="card-tag">Cisco Packet Tracer</span>
+                <span class="card-tag">Networking</span>
+              </div>
+              <h3 class="card-title">Topologi Jaringan</h3>
+              <p class="card-desc">
+                Desain arsitektur jaringan skala menengah meliputi konfigurasi
+                Router, Switch, DNS Server, Web Server, Email Server, dan FTP
+                Server.
+              </p>
+            </div>
+          </div>
+
+          <!-- ===== Project 2: SIMPER ===== -->
+          <div class="portfolio-card reveal-up" data-category="web">
+            <div class="card-image">
+              <img
+                src="images/portfolio-simper.png"
+                alt="Sistem Informasi Perpustakaan (SIMPER)"
+                style="width: 100%; height: 100%; object-fit: cover"
+              />
+            </div>
+            <div class="card-body">
+              <div class="card-tags">
+                <span class="card-tag">Laravel</span>
+                <span class="card-tag">Web Development</span>
+              </div>
+              <h3 class="card-title">Sistem Informasi Perpustakaan (SIMPER)</h3>
+              <p class="card-desc">
+                Sistem informasi perpustakaan sederhana berbasis website yang
+                dikembangkan menggunakan framework Laravel untuk memudahkan
+                manajemen data perpustakaan.
+              </p>
+            </div>
+          </div>
+
+          <!-- ===== Project 3: SiAbsen ===== -->
+          <div class="portfolio-card reveal-up" data-category="web">
+            <div class="card-image">
+              <img
+                src="images/portfolio-siabsen.png"
+                alt="Sistem Absensi Mahasiswa Digital (SiAbsen)"
+                style="width: 100%; height: 100%; object-fit: cover"
+              />
+            </div>
+            <div class="card-body">
+              <div class="card-tags">
+                <span class="card-tag">Laravel</span>
+                <span class="card-tag">Web Development</span>
+              </div>
+              <h3 class="card-title">Sistem Absensi (SiAbsen)</h3>
+              <p class="card-desc">
+                Sistem absensi mahasiswa digital berbasis web yang dibangun
+                menggunakan Laravel untuk memudahkan pencatatan kehadiran secara
+                real-time.
+              </p>
+            </div>
+          </div>
+          <!-- ===== Project 4: Personal Portfolio ===== -->
+          <div class="portfolio-card reveal-up" data-category="web">
+            <div class="card-image">
+              <img
+                src="images/portfolio-web.png"
+                alt="Personal Portfolio Website"
+                style="width: 100%; height: 100%; object-fit: cover"
+              />
+            </div>
+            <div class="card-body">
+              <div class="card-tags">
+                <span class="card-tag">HTML</span>
+                <span class="card-tag">CSS</span>
+                <span class="card-tag">JavaScript</span>
+              </div>
+              <h3 class="card-title">Personal Portfolio</h3>
+              <p class="card-desc">
+                Website portofolio interaktif dan responsif yang dibangun
+                menggunakan HTML, CSS, dan JavaScript untuk menampilkan profil,
+                keahlian, dan hasil karya secara profesional.
+              </p>
+            </div>
+          </div>
+          <!-- ===== Project 5: Monitoring Edukasi Anak ===== -->
+          <div class="portfolio-card reveal-up" data-category="web">
+            <div class="card-image">
+              <img
+                src="images/portfolio-monitoring.png"
+                alt="Monitoring Perkembangan Anak Usia Dini"
+                style="width: 100%; height: 100%; object-fit: cover"
+              />
+            </div>
+            <div class="card-body">
+              <div class="card-tags">
+                <span class="card-tag">Web Development</span>
+                <span class="card-tag">Laravel</span>
+                <span class="card-tag">Fuzzy Logic</span>
+              </div>
+              <h3 class="card-title">Monitoring Perkembangan Anak Usia Dini</h3>
+              <p class="card-desc">
+                Sistem monitoring perkembangan edukasi anak usia dini berbasis
+                website yang menerapkan algoritma Fuzzy Logic untuk perhitungan
+                nilai perkembangan secara akurat.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!--              SECTION 4: PENDIDIKAN                           -->
+    <!-- Timeline riwayat pendidikan dari terbaru ke terlama          -->
+    <!-- ============================================================ -->
+    <section id="pendidikan" class="section">
+      <div class="container">
+        <!-- Header Section -->
+        <div class="section-header reveal-up">
+          <span class="section-tag">Perjalanan Saya</span>
+          <h2 class="section-title">
+            Riwayat <span class="gradient-text">Pendidikan</span>
+          </h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="timeline">
+          <!-- ===== Timeline 1: Universitas Pamulang ===== -->
+          <div class="timeline-item reveal-left">
+            <div class="timeline-marker">
+              <i class="fas fa-university"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-badge">2022 - 2026</div>
+              <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                <img src="images/logo-unpam.png" alt="Logo UNPAM" style="width: 60px; height: auto; object-fit: contain;" />
+                <div>
+                  <h3 class="timeline-title" style="margin-bottom: 5px;">UNIVERSITAS PAMULANG</h3>
+                  <h4 class="timeline-subtitle" style="margin-bottom: 0;">Teknik Informatika</h4>
+                </div>
+              </div>
+              <p class="timeline-text">
+                Program Studi Teknik Informatika. Mempelajari dasar-dasar ilmu komputer, algoritma, pengembangan perangkat lunak, dan kecerdasan buatan. Aktif dalam kegiatan akademis dan pengembangan sistem informasi.
+              </p>
+            </div>
+          </div>
+
+          <!-- ===== Timeline 2: SMAN 9 Tangerang ===== -->
+          <div class="timeline-item reveal-right">
+            <div class="timeline-marker">
+              <i class="fas fa-school"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-badge">2019 - 2022</div>
+              <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                <img src="images/logo-sman9.png" alt="Logo SMAN 9" style="width: 50px; height: auto; object-fit: contain;" />
+                <div>
+                  <h3 class="timeline-title" style="margin-bottom: 5px;">SMAN 9 TANGERANG</h3>
+                  <h4 class="timeline-subtitle" style="margin-bottom: 0;">Jurusan IPA</h4>
+                </div>
+              </div>
+              <p class="timeline-text">
+                Jurusan Ilmu Pengetahuan Alam dengan fokus pada matematika dan sains. Pembelajaran ini membentuk dasar pemikiran logis dan analitis sebagai persiapan menuju pendidikan tinggi di bidang teknologi.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!--              SECTION 5: BLOG & ARTIKEL                       -->
+    <!-- Kumpulan artikel/blog dengan gambar, link, dan deskripsi     -->
+    <!-- ============================================================ -->
+    <section id="blog" class="section section-alt">
+      <div class="container">
+        <!-- Header Section -->
+        <div class="section-header reveal-up">
+          <span class="section-tag">Tulisan Saya</span>
+          <h2 class="section-title">
+            Blog & <span class="gradient-text">Artikel</span>
+          </h2>
+          <div class="section-line"></div>
+          <p class="section-desc">
+            Berbagi pengetahuan, pengalaman, dan insight seputar teknologi.
+          </p>
+        </div>
+
+        <div class="blog-grid">
+          <!-- ===== Blog 1: Kerja Praktik SDN Tangerang 2 ===== -->
+          <article class="blog-card reveal-up">
+            <div class="blog-image">
+              <img
+                src="images/blog-kp-sdn-tangerang.jpg"
+                alt="Kerja Praktik SDN Tangerang 2"
+                style="width: 100%; height: 100%; object-fit: cover"
+              />
+              <div class="blog-category">Kerja Praktik</div>
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span><i class="far fa-calendar"></i> 26 Jun 2025</span>
+                <span><i class="far fa-clock"></i> 7 min read</span>
+              </div>
+              <h3 class="blog-title">
+                Perancangan Sistem Perpustakaan Berbasis Website di SDN
+                Tangerang 2 dengan Metode Waterfall
+              </h3>
+              <p class="blog-excerpt">
+                Kegiatan Kerja Praktik dalam merancang dan membangun sistem
+                informasi perpustakaan berbasis website untuk SDN Tangerang 2
+                menggunakan metode Waterfall...
+              </p>
+              <a
+                href="https://mediasembilan.com/2025/06/26/perancangan-sistem-perpustakaan-berbasis-website-di-sdn-tangerang-2-dengan-metode-waterfall/"
+                target="_blank"
+                class="blog-link"
+              >
+                Baca Selengkapnya <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- ===== Blog 2: PKM SMP Dharma Karya UT ===== -->
+          <article class="blog-card reveal-up">
+            <div class="blog-image">
+              <img
+                src="images/blog-pkm-dharma-karya.jpg"
+                alt="Pengabdian Kepada Masyarakat SMP Dharma Karya UT"
+                style="width: 100%; height: 100%; object-fit: cover"
+              />
+              <div class="blog-category">PKM</div>
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span><i class="far fa-calendar"></i> 26 Okt 2024</span>
+                <span><i class="far fa-clock"></i> 5 min read</span>
+              </div>
+              <h3 class="blog-title">
+                Pelatihan Dasar Microsoft Office untuk Siswa-Siswi SMP Dharma
+                Karya UT
+              </h3>
+              <p class="blog-excerpt">
+                Kegiatan Pengabdian Kepada Masyarakat berupa sosialisasi dan
+                pelatihan Microsoft Word, Excel, dan PowerPoint untuk
+                siswa-siswi SMP Dharma Karya UT...
+              </p>
+              <a
+                href="https://mediasembilan.com/2024/10/26/pelatihan-dasar-microsoft-office-microsoft-word-microsoft-excel-power-point-untuk-siswa-i-smp-dharma-karya-ut/"
+                target="_blank"
+                class="blog-link"
+              >
+                Baca Selengkapnya <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!--              SECTION 6: KONTAK                               -->
+    <!-- Informasi kontak (email, telepon, lokasi) + form pesan       -->
+    <!-- Berisi juga link sosial media (GitHub, Instagram, Email)     -->
+    <!-- ============================================================ -->
+    <section id="kontak" class="section">
+      <div class="container">
+        <!-- Header Section -->
+        <div class="section-header reveal-up">
+          <span class="section-tag">Hubungi Saya</span>
+          <h2 class="section-title">
+            Mari <span class="gradient-text">Berkolaborasi</span>
+          </h2>
+          <div class="section-line"></div>
+          <p class="section-desc">
+            Punya proyek menarik atau ingin berdiskusi? Jangan ragu untuk
+            menghubungi saya.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Kolom Kiri: Info Kontak & Sosial Media -->
+          <div class="contact-info reveal-left">
+            <!-- Kartu Email -->
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <h4>Email</h4>
+                <p>muhammadarieftrifaturachman@gmail.com</p>
+              </div>
+            </div>
+
+            <!-- Kartu Telepon -->
+            <div class="contact-card">
+              <div class="contact-card-icon"><i class="fas fa-phone"></i></div>
+              <div>
+                <h4>Telepon</h4>
+                <p>+62 852 1133 9940</p>
+              </div>
+            </div>
+
+            <!-- Kartu Lokasi -->
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <h4>Lokasi</h4>
+                <p>Indonesia</p>
+              </div>
+            </div>
+
+            <!-- Link Sosial Media -->
+            <div class="social-links">
+              <a
+                href="https://github.com/Lois-ship-io"
+                target="_blank"
+                class="social-link"
+                title="GitHub"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/faturachmannnn/"
+                target="_blank"
+                class="social-link"
+                title="Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="mailto:muhammadarieftrifaturachman@gmail.com"
+                class="social-link"
+                title="Email"
+              >
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Kolom Kanan: Form Kontak -->
+          <form class="contact-form reveal-right" id="contactForm">
+            <!-- Input: Nama Lengkap -->
+            <div class="form-group">
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder=" "
+                />
+                <label for="name">Nama Lengkap</label>
+                <span class="input-border"></span>
+              </div>
+            </div>
+
+            <!-- Input: Email -->
+            <div class="form-group">
+              <div class="input-wrapper">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder=" "
+                />
+                <label for="email">Email</label>
+                <span class="input-border"></span>
+              </div>
+            </div>
+
+            <!-- Input: Subjek -->
+            <div class="form-group">
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  required
+                  placeholder=" "
+                />
+                <label for="subject">Subjek</label>
+                <span class="input-border"></span>
+              </div>
+            </div>
+
+            <!-- Input: Pesan -->
+            <div class="form-group">
+              <div class="input-wrapper">
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  placeholder=" "
+                ></textarea>
+                <label for="message">Pesan</label>
+                <span class="input-border"></span>
+              </div>
+            </div>
+
+            <!-- Tombol Kirim -->
+            <button
+              type="submit"
+              class="btn btn-primary btn-full"
+              id="submitBtn"
+            >
+              <span>Kirim Pesan</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+
+            <!-- Status Pengiriman Form -->
+            <div class="form-status" id="formStatus"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!--                         FOOTER                               -->
+    <!-- Berisi: Logo, Copyright, dan Link Sosial Media               -->
+    <!-- Layout horizontal (memanjang)                                -->
+    <!-- ============================================================ -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <!-- Logo -->
+          <div class="footer-logo">FATURACHMAN</div>
+
+          <!-- Copyright -->
+          <p class="footer-text">
+            &copy; 2026 Muhammad Arief Tri Faturachman. All rights reserved.
+          </p>
+
+          <!-- Sosial Media Footer -->
+          <div class="footer-social">
+            <a
+              href="https://github.com/Lois-ship-io"
+              target="_blank"
+              title="GitHub"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/faturachmannnn/"
+              target="_blank"
+              title="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="mailto:muhammadarieftrifaturachman@gmail.com" title="Email"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ============================== -->
+    <!-- TOMBOL BACK TO TOP             -->
+    <!-- Muncul saat scroll > 500px     -->
+    <!-- ============================== -->
+    <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- ============================== -->
+    <!-- JAVASCRIPT                     -->
+    <!-- ============================== -->
+    <script src="script.js"></script>
+  </body>
+</html>
