@@ -1606,6 +1606,12 @@ body:hover .cursor-glow {
         text-align: center;
     }
 
+    .hero-typewriter {
+        justify-content: center;
+        flex-wrap: wrap;
+        height: auto;
+    }
+
     .hero-description {
         margin: 0 auto 32px;
     }
@@ -1751,7 +1757,16 @@ body:hover .cursor-glow {
     }
 
     .hero-name {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+    }
+
+    .hero-typewriter {
+        font-size: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        height: auto;
+        line-height: 1.5;
+        text-align: center;
     }
 
     .hero-stats {
@@ -1786,9 +1801,12 @@ body:hover .cursor-glow {
 
     .hero-cta {
         flex-direction: column;
+        width: 100%;
+        gap: 12px;
     }
 
-    .btn {
+    .hero-cta .btn {
+        width: 100%;
         justify-content: center;
     }
 
