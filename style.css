@@ -1352,6 +1352,25 @@ body:hover .cursor-glow {
   transform: translateX(4px);
 }
 
+.blog-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  align-items: center;
+}
+
+.blog-link-jurnal {
+  color: var(--accent-1) !important;
+}
+
+.blog-link-jurnal:hover {
+  color: var(--accent-3) !important;
+}
+
+.blog-link-jurnal i {
+  transition: var(--transition-base);
+}
+
 /* ============================================
    CONTACT SECTION
    ============================================ */
